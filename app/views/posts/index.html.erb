@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+  <p class="navbar-brand" >Hello <%= current_user.username %>! </p>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <div class="nav">
+          <li class="nav-item">
+             <%= link_to "New post", new_post_path  , class:"btn btn-primary"%>
+             <%= link_to "Back ", root_path ,class:"btn btn-danger" %>
+          </li>          
+        </div>
+    </div>
+  </div>
+</nav>
+<br>
+<br>
+<ul class="cards">
+<body class="body">
+<% @posts.each do |post| %>
+ <li class="cards__item">
+    <div class="card">
+      <div class="card__content"><%= post.user.username %>
+        <div class="card__title"><%= post.title %></div>
+        <p class="card__text"><%= post.body %></p>
+        <%= link_to "Show this post", post , class:"btn btn-primary" %>
+      </div>
+    </div>
+  </li>
+  <% end %>
+</ul>
+</body>
+
+   
